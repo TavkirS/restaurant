@@ -1,183 +1,592 @@
 {
   "categories": [
     {
-      "id": "appetizers",
-      "name": "Appetizers",
-      "description": "Start your meal with our delicious starters"
+      "id": "maggie",
+      "name": "🍜 MAGGIE",
+      "description": "Delicious instant noodles with various flavors"
     },
     {
-      "id": "main-course",
-      "name": "Main Course",
-      "description": "Our signature dishes made with fresh ingredients"
+      "id": "burger",
+      "name": "🍔 BURGER (GRILLED)",
+      "description": "Grilled burgers with fresh ingredients"
+    },
+    {
+      "id": "sandwich",
+      "name": "🥪 SANDWICH (GRILLED)",
+      "description": "Grilled sandwiches with premium fillings"
+    },
+    {
+      "id": "roll",
+      "name": "🌯 ROLL (WITH CHEESE)",
+      "description": "Kathi rolls with cheese and flavorful fillings"
+    },
+    {
+      "id": "chinese-veg",
+      "name": "🍜 CHINESE (VEG)",
+      "description": "Vegetarian Chinese dishes"
+    },
+    {
+      "id": "non-veg",
+      "name": "🍗 NON-VEG",
+      "description": "Non-vegetarian specialties"
+    },
+    {
+      "id": "best-in-demand",
+      "name": "🔥 BEST IN DEMAND",
+      "description": "Our most popular dishes"
+    },
+    {
+      "id": "fries",
+      "name": "🍟 FRIES",
+      "description": "Crispy fries with various toppings"
+    },
+    {
+      "id": "special-fries",
+      "name": "🍟 SPECIAL FRIES",
+      "description": "Buy Any 2 @ ₹299"
+    },
+    {
+      "id": "garlic-bread",
+      "name": "🧄 GARLIC BREAD",
+      "description": "Garlic bread with various toppings"
     },
     {
       "id": "pasta",
-      "name": "Pasta & Risotto",
-      "description": "Authentic Italian pasta dishes"
-    },
-    {
-      "id": "pizza",
-      "name": "Wood Fired Pizza",
-      "description": "Traditional wood-fired pizzas with fresh toppings"
-    },
-    {
-      "id": "desserts",
-      "name": "Desserts",
-      "description": "Sweet endings to your perfect meal"
-    },
-    {
-      "id": "beverages",
-      "name": "Beverages",
-      "description": "Refreshing drinks and beverages"
+      "name": "🍝 PASTA",
+      "description": "Serves 3-5 people"
     }
   ],
   "items": [
     {
-      "id": "bruschetta",
-      "name": "Classic Bruschetta",
-      "category": "appetizers",
-      "price": 180,
+      "id": "maggie-plain",
+      "name": "Plain Maggie",
+      "category": "maggie",
+      "price": 35,
       "veg": true,
-      "description": "Toasted bread topped with fresh tomatoes, basil, garlic, and extra virgin olive oil. A traditional Italian starter.",
-      "images": [
-        "imgtwo.webp",
-        "imgthree.webp"
-      ]
+      "description": "Classic instant noodles",
+      "images": ["imgtwo.webp"]
     },
     {
-      "id": "calamari",
-      "name": "Crispy Calamari Rings",
-      "category": "appetizers",
-      "price": 320,
+      "id": "maggie-masala",
+      "name": "Masala Maggie",
+      "category": "maggie",
+      "price": 45,
+      "veg": true,
+      "description": "Spiced instant noodles",
+      "images": ["imgthree.webp"]
+    },
+    {
+      "id": "maggie-schezwan",
+      "name": "Schezwan Maggie",
+      "category": "maggie",
+      "price": 45,
+      "veg": true,
+      "description": "Spicy Schezwan flavored noodles",
+      "images": ["imgfour.jpg"]
+    },
+    {
+      "id": "maggie-cheese",
+      "name": "Cheese Maggie",
+      "category": "maggie",
+      "price": 55,
+      "veg": true,
+      "description": "Cheesy instant noodles",
+      "images": ["imgfive.webp"]
+    },
+    {
+      "id": "burger-veg",
+      "name": "Veg Burger",
+      "category": "burger",
+      "price": 39,
+      "veg": true,
+      "description": "Grilled vegetable burger",
+      "images": ["imgtwo.webp"]
+    },
+    {
+      "id": "burger-cheese",
+      "name": "Cheese Burger",
+      "category": "burger",
+      "price": 45,
+      "veg": true,
+      "description": "Grilled burger with cheese",
+      "images": ["imgthree.webp"]
+    },
+    {
+      "id": "burger-paneer",
+      "name": "Paneer Burger",
+      "category": "burger",
+      "price": 59,
+      "veg": true,
+      "description": "Grilled paneer burger",
+      "images": ["imgfour.jpg"]
+    },
+    {
+      "id": "burger-chicken",
+      "name": "Chicken Burger",
+      "category": "burger",
+      "price": 69,
       "veg": false,
-      "description": "Golden fried squid rings served with marinara sauce and lemon wedges. Perfectly seasoned and crispy.",
-      "images": [
-        "imgfour.jpg"
-      ]
+      "description": "Grilled chicken burger",
+      "images": ["imgfive.webp"]
     },
     {
-      "id": "mushroom-risotto",
-      "name": "Wild Mushroom Risotto",
-      "category": "main-course",
-      "price": 380,
+      "id": "sandwich-veg",
+      "name": "Veg Sandwich",
+      "category": "sandwich",
+      "price": 45,
       "veg": true,
-      "description": "Creamy Arborio rice cooked with wild mushrooms, white wine, parmesan cheese, and fresh herbs.",
-      "images": [
-        "imgfive.webp",
-        "imgtwo.webp",
-        "imgthree.webp"
-      ]
+      "description": "Grilled vegetable sandwich",
+      "images": ["imgtwo.webp"]
     },
     {
-      "id": "grilled-salmon",
-      "name": "Grilled Atlantic Salmon",
-      "category": "main-course",
-      "price": 450,
+      "id": "sandwich-cheese",
+      "name": "Cheese Sandwich",
+      "category": "sandwich",
+      "price": 69,
+      "veg": true,
+      "description": "Grilled cheese sandwich",
+      "images": ["imgthree.webp"]
+    },
+    {
+      "id": "sandwich-corn-spinach",
+      "name": "Corn & Spinach Cheese Sandwich",
+      "category": "sandwich",
+      "price": 79,
+      "veg": true,
+      "description": "Grilled sandwich with corn, spinach and cheese",
+      "images": ["imgfour.jpg"]
+    },
+    {
+      "id": "sandwich-paneer-cheese",
+      "name": "Paneer Cheese Sandwich",
+      "category": "sandwich",
+      "price": 99,
+      "veg": true,
+      "description": "Grilled paneer and cheese sandwich",
+      "images": ["imgfive.webp"]
+    },
+    {
+      "id": "sandwich-chicken-cheese",
+      "name": "Chicken Cheese Sandwich",
+      "category": "sandwich",
+      "price": 109,
       "veg": false,
-      "description": "Fresh Atlantic salmon fillet grilled to perfection, served with roasted vegetables and lemon butter sauce.",
-      "images": [
-        "imgfour.jpg",
-        "imgfive.webp"
-      ]
+      "description": "Grilled chicken and cheese sandwich",
+      "images": ["imgtwo.webp"]
     },
     {
-      "id": "carbonara",
-      "name": "Spaghetti Carbonara",
-      "category": "pasta",
-      "price": 280,
+      "id": "sandwich-paneer-tikka",
+      "name": "Paneer Tikka Cheese Sandwich",
+      "category": "sandwich",
+      "price": 119,
+      "veg": true,
+      "description": "Grilled paneer tikka and cheese sandwich",
+      "images": ["imgthree.webp"]
+    },
+    {
+      "id": "sandwich-chicken-tikka",
+      "name": "Chicken Tikka Cheese Sandwich",
+      "category": "sandwich",
+      "price": 139,
       "veg": false,
-      "description": "Classic Roman pasta with pancetta, eggs, pecorino romano cheese, and black pepper. Rich and creamy.",
-      "images": [
-        "imgtwo.webp",
-        "imgthree.webp",
-        "imgfour.jpg"
-      ]
+      "description": "Grilled chicken tikka and cheese sandwich",
+      "images": ["imgfour.jpg"]
     },
     {
-      "id": "pesto-penne",
-      "name": "Pesto Penne Pasta",
-      "category": "pasta",
-      "price": 260,
+      "id": "sandwich-pizza",
+      "name": "Pizza Sandwich",
+      "category": "sandwich",
+      "price": 99,
       "veg": true,
-      "description": "Penne pasta tossed in homemade basil pesto sauce with pine nuts, parmesan, and cherry tomatoes.",
-      "images": [
-        "imgfive.webp",
-        "imgtwo.webp"
-      ]
+      "description": "Grilled pizza style sandwich",
+      "images": ["imgfive.webp"]
     },
     {
-      "id": "margherita",
-      "name": "Classic Margherita Pizza",
-      "category": "pizza",
-      "price": 320,
-      "veg": true,
-      "description": "Traditional Neapolitan pizza with San Marzano tomato sauce, fresh mozzarella, basil, and extra virgin olive oil.",
-      "images": [
-        "imgthree.webp",
-        "imgfour.jpg",
-        "imgfive.webp"
-      ]
-    },
-    {
-      "id": "diavola",
-      "name": "Diavola Pizza",
-      "category": "pizza",
-      "price": 380,
+      "id": "sandwich-chicken-pizza",
+      "name": "Chicken Pizza Sandwich",
+      "category": "sandwich",
+      "price": 139,
       "veg": false,
-      "description": "Spicy pizza topped with spicy salami, mozzarella cheese, tomato sauce, and fresh chili peppers.",
-      "images": [
-        "imgtwo.webp",
-        "imgthree.webp"
-      ]
+      "description": "Grilled chicken pizza style sandwich",
+      "images": ["imgtwo.webp"]
     },
     {
-      "id": "tiramisu",
-      "name": "Classic Tiramisu",
-      "category": "desserts",
-      "price": 220,
+      "id": "roll-egg",
+      "name": "Egg Roll",
+      "category": "roll",
+      "price": 89,
+      "veg": false,
+      "description": "Egg kathi roll with cheese",
+      "images": ["imgthree.webp"]
+    },
+    {
+      "id": "roll-paneer",
+      "name": "Paneer Kathi Roll",
+      "category": "roll",
+      "price": 99,
       "veg": true,
-      "description": "Traditional Italian dessert with layers of coffee-soaked ladyfingers, mascarpone cream, and cocoa powder.",
-      "images": [
-        "imgfour.jpg",
-        "imgfive.webp",
-        "imgtwo.webp"
-      ]
+      "description": "Paneer kathi roll with cheese",
+      "images": ["imgfour.jpg"]
     },
     {
-      "id": "gelato",
-      "name": "Artisan Gelato",
-      "category": "desserts",
+      "id": "roll-paneer-tikka",
+      "name": "Paneer Tikka Kathi Roll",
+      "category": "roll",
+      "price": 119,
+      "veg": true,
+      "description": "Paneer tikka kathi roll with cheese",
+      "images": ["imgfive.webp"]
+    },
+    {
+      "id": "roll-chicken",
+      "name": "Chicken Kathi Roll",
+      "category": "roll",
+      "price": 99,
+      "veg": false,
+      "description": "Chicken kathi roll with cheese",
+      "images": ["imgtwo.webp"]
+    },
+    {
+      "id": "roll-chicken-tikka",
+      "name": "Chicken Tikka Kathi Roll",
+      "category": "roll",
+      "price": 129,
+      "veg": false,
+      "description": "Chicken tikka kathi roll with cheese",
+      "images": ["imgthree.webp"]
+    },
+    {
+      "id": "chinese-chowmein",
+      "name": "Chowmein",
+      "category": "chinese-veg",
+      "price": 69,
+      "veg": true,
+      "description": "Stir-fried noodles",
+      "images": ["imgfour.jpg"]
+    },
+    {
+      "id": "chinese-manchurian",
+      "name": "Manchurian",
+      "category": "chinese-veg",
+      "price": 85,
+      "veg": true,
+      "description": "Vegetable manchurian",
+      "images": ["imgfive.webp"]
+    },
+    {
+      "id": "chinese-fried-rice",
+      "name": "Fried Rice",
+      "category": "chinese-veg",
+      "price": 69,
+      "veg": true,
+      "description": "Vegetable fried rice",
+      "images": ["imgtwo.webp"]
+    },
+    {
+      "id": "chinese-man-rice",
+      "name": "Man-rice",
+      "category": "chinese-veg",
+      "price": 85,
+      "veg": true,
+      "description": "Manchurian with fried rice",
+      "images": ["imgthree.webp"]
+    },
+    {
+      "id": "chinese-man-chowmein",
+      "name": "Man-Chowmein",
+      "category": "chinese-veg",
+      "price": 95,
+      "veg": true,
+      "description": "Manchurian with chowmein",
+      "images": ["imgfour.jpg"]
+    },
+    {
+      "id": "chinese-triple-rice",
+      "name": "Triple Rice",
+      "category": "chinese-veg",
+      "price": 100,
+      "veg": true,
+      "description": "Triple combination fried rice",
+      "images": ["imgfive.webp"]
+    },
+    {
+      "id": "chinese-hakka-noodles",
+      "name": "Hakka Noodles",
+      "category": "chinese-veg",
+      "price": 85,
+      "veg": true,
+      "description": "Hakka style noodles",
+      "images": ["imgtwo.webp"]
+    },
+    {
+      "id": "chinese-chilli-noodles",
+      "name": "Chilli Noodles",
+      "category": "chinese-veg",
+      "price": 99,
+      "veg": true,
+      "description": "Spicy chilli noodles",
+      "images": ["imgthree.webp"]
+    },
+    {
+      "id": "chinese-chilli-garlic-noodles",
+      "name": "Chilli Garlic Noodles",
+      "category": "chinese-veg",
+      "price": 95,
+      "veg": true,
+      "description": "Chilli garlic flavored noodles",
+      "images": ["imgfour.jpg"]
+    },
+    {
+      "id": "chinese-veg-ball-chilli",
+      "name": "Veg Ball in Chilli Sauce",
+      "category": "chinese-veg",
+      "price": 99,
+      "veg": true,
+      "description": "Vegetable balls in chilli sauce",
+      "images": ["imgfive.webp"]
+    },
+    {
+      "id": "chinese-veg-crispy",
+      "name": "Veg Crispy",
+      "category": "chinese-veg",
+      "price": 99,
+      "veg": true,
+      "description": "Crispy vegetable dish",
+      "images": ["imgtwo.webp"]
+    },
+    {
+      "id": "chinese-chilli-paneer",
+      "name": "Chilli Paneer",
+      "category": "chinese-veg",
+      "price": 125,
+      "veg": true,
+      "description": "Paneer in chilli sauce",
+      "images": ["imgthree.webp"]
+    },
+    {
+      "id": "chinese-paneer-junglee",
+      "name": "Paneer Junglee",
+      "category": "chinese-veg",
       "price": 150,
       "veg": true,
-      "description": "Homemade Italian gelato available in various flavors. Ask your server for today's selection.",
-      "images": [
-        "imgthree.webp",
-        "imgfour.jpg"
-      ]
+      "description": "Spicy paneer dish",
+      "images": ["imgfour.jpg"]
     },
     {
-      "id": "cappuccino",
-      "name": "Italian Cappuccino",
-      "category": "beverages",
-      "price": 120,
-      "veg": true,
-      "description": "Authentic Italian cappuccino made with freshly ground Arabica beans and steamed milk foam.",
-      "images": [
-        "imgfive.webp",
-        "imgtwo.webp"
-      ]
+      "id": "nonveg-chilly-chicken",
+      "name": "Chilly Chicken",
+      "category": "non-veg",
+      "price": 140,
+      "veg": false,
+      "description": "Spicy chilly chicken",
+      "images": ["imgfive.webp"]
     },
     {
-      "id": "wine-selection",
-      "name": "House Wine Selection",
-      "category": "beverages",
-      "price": 180,
+      "id": "nonveg-chicken-noodles",
+      "name": "Chicken Noodles",
+      "category": "non-veg",
+      "price": 140,
+      "veg": false,
+      "description": "Chicken noodles",
+      "images": ["imgtwo.webp"]
+    },
+    {
+      "id": "nonveg-chicken-rice",
+      "name": "Chicken Rice",
+      "category": "non-veg",
+      "price": 140,
+      "veg": false,
+      "description": "Chicken fried rice",
+      "images": ["imgthree.webp"]
+    },
+    {
+      "id": "nonveg-triple-chicken-rice",
+      "name": "Triple Chicken Rice",
+      "category": "non-veg",
+      "price": 150,
+      "veg": false,
+      "description": "Triple combination chicken rice",
+      "images": ["imgfour.jpg"]
+    },
+    {
+      "id": "nonveg-chicken-egg-half-fry",
+      "name": "Chicken & Egg Half Fry",
+      "category": "non-veg",
+      "price": 169,
+      "veg": false,
+      "description": "Chicken with half fried egg",
+      "images": ["imgfive.webp"]
+    },
+    {
+      "id": "best-peri-peri-cheese-fries",
+      "name": "Peri Peri Cheese Fries",
+      "category": "best-in-demand",
+      "price": 85,
       "veg": true,
-      "description": "Carefully selected Italian wines by the glass. Red, white, and rosé options available.",
-      "images": [
-        "imgthree.webp",
-        "imgfour.jpg"
-      ]
+      "description": "Crispy fries with peri peri seasoning and cheese",
+      "images": ["imgtwo.webp"]
+    },
+    {
+      "id": "best-chicken-popcorn",
+      "name": "Chicken Popcorn",
+      "category": "best-in-demand",
+      "price": 130,
+      "veg": false,
+      "description": "Crispy chicken popcorn",
+      "images": ["imgthree.webp"]
+    },
+    {
+      "id": "best-paneer-lapeta",
+      "name": "Paneer Lapeta",
+      "category": "best-in-demand",
+      "price": 150,
+      "veg": true,
+      "description": "Spicy paneer lapeta",
+      "images": ["imgfour.jpg"]
+    },
+    {
+      "id": "best-chicken-lapeta",
+      "name": "Chicken Lapeta",
+      "category": "best-in-demand",
+      "price": 160,
+      "veg": false,
+      "description": "Spicy chicken lapeta",
+      "images": ["imgfive.webp"]
+    },
+    {
+      "id": "best-crispy-honey-butter-chicken",
+      "name": "Crispy Honey Butter Chicken",
+      "category": "best-in-demand",
+      "price": 160,
+      "veg": false,
+      "description": "Crispy chicken in honey butter sauce",
+      "images": ["imgtwo.webp"]
+    },
+    {
+      "id": "fries-salted",
+      "name": "Salted Fries",
+      "category": "fries",
+      "price": 55,
+      "veg": true,
+      "description": "Classic salted fries",
+      "images": ["imgthree.webp"]
+    },
+    {
+      "id": "fries-cheese",
+      "name": "Cheese Fries",
+      "category": "fries",
+      "price": 75,
+      "veg": true,
+      "description": "Fries topped with cheese",
+      "images": ["imgfour.jpg"]
+    },
+    {
+      "id": "fries-peri-peri",
+      "name": "Peri Peri Fries",
+      "category": "fries",
+      "price": 85,
+      "veg": true,
+      "description": "Fries with peri peri seasoning",
+      "images": ["imgfive.webp"]
+    },
+    {
+      "id": "fries-peri-peri-cheese",
+      "name": "Peri Peri Cheese Fries",
+      "category": "fries",
+      "price": 85,
+      "veg": true,
+      "description": "Fries with peri peri and cheese",
+      "images": ["imgtwo.webp"]
+    },
+    {
+      "id": "special-fries-alien",
+      "name": "Alien Fries",
+      "category": "special-fries",
+      "price": 179,
+      "veg": true,
+      "description": "Topping Mayo 2 Type, Jalapeno, Olive",
+      "images": ["imgthree.webp"]
+    },
+    {
+      "id": "special-fries-3-cheese",
+      "name": "3 Cheese Fries",
+      "category": "special-fries",
+      "price": 179,
+      "veg": true,
+      "description": "Orange Cheese, Cheese, Pizza Cheese",
+      "images": ["imgfour.jpg"]
+    },
+    {
+      "id": "special-fries-mexican",
+      "name": "Mexican Fries",
+      "category": "special-fries",
+      "price": 179,
+      "veg": true,
+      "description": "Mexican sauce",
+      "images": ["imgfive.webp"]
+    },
+    {
+      "id": "special-fries-nachos-cheese",
+      "name": "With Crushed Nachos & Cheese",
+      "category": "special-fries",
+      "price": 179,
+      "veg": true,
+      "description": "Fries with crushed nachos and cheese",
+      "images": ["imgtwo.webp"]
+    },
+    {
+      "id": "special-fries-chicken-cheese-loaded",
+      "name": "Chicken Cheese Loaded Fries",
+      "category": "special-fries",
+      "price": 199,
+      "veg": false,
+      "description": "Loaded fries with chicken and cheese",
+      "images": ["imgthree.webp"]
+    },
+    {
+      "id": "garlic-bread-cheese",
+      "name": "Cheese Garlic Bread",
+      "category": "garlic-bread",
+      "price": 85,
+      "veg": true,
+      "description": "Garlic bread with cheese",
+      "images": ["imgfour.jpg"]
+    },
+    {
+      "id": "garlic-bread-veg-exotic",
+      "name": "Veg Exotic Garlic Bread",
+      "category": "garlic-bread",
+      "price": 95,
+      "veg": true,
+      "description": "Exotic vegetable garlic bread",
+      "images": ["imgfive.webp"]
+    },
+    {
+      "id": "garlic-bread-chicken-cheese",
+      "name": "Chicken Cheese Garlic Bread",
+      "category": "garlic-bread",
+      "price": 110,
+      "veg": false,
+      "description": "Garlic bread with chicken and cheese",
+      "images": ["imgtwo.webp"]
+    },
+    {
+      "id": "pasta-white-sauce",
+      "name": "White Sauce Pasta",
+      "category": "pasta",
+      "price": 185,
+      "veg": true,
+      "description": "Cheesy white sauce with herbs and veggies, breads on side. Serves 3-5",
+      "images": ["imgthree.webp", "imgfour.jpg"]
+    },
+    {
+      "id": "pasta-basil-pesto",
+      "name": "Basil Pesto Pasta",
+      "category": "pasta",
+      "price": 235,
+      "veg": true,
+      "description": "Cheesy basil sauce with herbs and veggies, breads on side. Serves 3-5",
+      "images": ["imgfive.webp", "imgtwo.webp"]
     }
   ]
 }

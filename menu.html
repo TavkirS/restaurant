@@ -83,9 +83,16 @@
                 <h1 class="display-4 fw-bold mb-3">Our Menu</h1>
                 <p class="lead text-muted mb-4">Discover authentic Italian flavors crafted with passion</p>
 
-                <!-- Category Filters -->
-                <div class="category-filters d-flex flex-wrap justify-content-center gap-2 mb-4" id="categoryFilters">
-                    <!-- Categories will be populated by JavaScript -->
+                <!-- Category Filters Dropdown -->
+                <div class="category-filters-dropdown d-flex justify-content-center mb-4">
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            <i class="fas fa-filter me-2"></i><span id="selectedCategoryText">All Categories</span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="categoryDropdown" id="categoryDropdownMenu" data-bs-popper="static">
+                            <!-- Categories will be populated by JavaScript -->
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Search Bar -->

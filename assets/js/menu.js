@@ -77,26 +77,94 @@ class MenuManager {
 
     // Setup category filters
     setupFilters() {
-        const categoryFilters = document.getElementById('categoryFilters');
+        const categoryDropdownMenu = document.getElementById('categoryDropdownMenu');
+        const selectedCategoryText = document.getElementById('selectedCategoryText');
 
-        if (!categoryFilters || !menuData) return;
+        if (!categoryDropdownMenu || !menuData) return;
 
-        // Add "All" filter first
-        const allButton = document.createElement('button');
-        allButton.className = 'btn btn-outline-primary active';
-        allButton.setAttribute('data-category', 'all');
-        allButton.textContent = 'All';
-        allButton.onclick = () => this.filterByCategory('all');
-        categoryFilters.appendChild(allButton);
+        // Add "All" option first
+        const allItem = document.createElement('li');
+        const allLink = document.createElement('a');
+        allLink.className = 'dropdown-item active';
+        allLink.setAttribute('data-category', 'all');
+        allLink.href = '#';
+        allLink.textContent = 'All Categories';
+        allLink.onclick = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            this.filterByCategory('all');
+            this.updateDropdownActiveState('all');
+            if (selectedCategoryText) selectedCategoryText.textContent = 'All Categories';
+            // Close dropdown after selection
+            this.closeDropdown();
+        };
+        allItem.appendChild(allLink);
+        categoryDropdownMenu.appendChild(allItem);
 
-        // Add category filters
-        menuData.categories.forEach(category => {
-            const button = document.createElement('button');
-            button.className = 'btn btn-outline-primary';
-            button.setAttribute('data-category', category.id);
-            button.textContent = category.name;
-            button.onclick = () => this.filterByCategory(category.id);
-            categoryFilters.appendChild(button);
+        // Add category options
+        menuData.categories.forEach((category, index) => {
+            const item = document.createElement('li');
+            const link = document.createElement('a');
+            link.className = 'dropdown-item';
+            link.setAttribute('data-category', category.id);
+            link.href = '#';
+            link.textContent = category.name;
+            
+            // Handle both click and mousedown for better reliability
+            const handleSelection = (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.filterByCategory(category.id);
+                this.updateDropdownActiveState(category.id);
+                if (selectedCategoryText) selectedCategoryText.textContent = category.name;
+                // Small delay before closing to ensure click registers
+                setTimeout(() => {
+                    this.closeDropdown();
+                }, 100);
+            };
+            
+            link.onclick = handleSelection;
+            link.onmousedown = handleSelection;
+            
+            // Add extra class for last item
+            if (index === menuData.categories.length - 1) {
+                link.classList.add('last-dropdown-item');
+            }
+            
+            item.appendChild(link);
+            categoryDropdownMenu.appendChild(item);
+        });
+    }
+
+    // Close dropdown
+    closeDropdown() {
+        const dropdownButton = document.getElementById('categoryDropdown');
+        const dropdownMenu = document.getElementById('categoryDropdownMenu');
+        if (dropdownButton && dropdownMenu) {
+            // Try Bootstrap 5 method
+            if (typeof bootstrap !== 'undefined' && bootstrap.Dropdown) {
+                const dropdownInstance = bootstrap.Dropdown.getInstance(dropdownButton);
+                if (dropdownInstance) {
+                    dropdownInstance.hide();
+                    return;
+                }
+            }
+            // Fallback: manually hide dropdown
+            dropdownMenu.classList.remove('show');
+            dropdownButton.setAttribute('aria-expanded', 'false');
+            dropdownButton.classList.remove('show');
+        }
+    }
+
+    // Update dropdown active state
+    updateDropdownActiveState(categoryId) {
+        const dropdownItems = document.querySelectorAll('#categoryDropdownMenu .dropdown-item');
+        dropdownItems.forEach(item => {
+            if (item.getAttribute('data-category') === categoryId) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
         });
     }
 
@@ -117,11 +185,21 @@ class MenuManager {
         currentCategory = categoryId;
         searchQuery = ''; // Clear search when filtering by category
 
-        // Update active button
-        const buttons = document.querySelectorAll('#categoryFilters button');
-        buttons.forEach(button => {
-            button.classList.toggle('active', button.getAttribute('data-category') === categoryId);
-        });
+        // Update dropdown active state
+        this.updateDropdownActiveState(categoryId);
+
+        // Update selected category text
+        const selectedCategoryText = document.getElementById('selectedCategoryText');
+        if (selectedCategoryText) {
+            if (categoryId === 'all') {
+                selectedCategoryText.textContent = 'All Categories';
+            } else {
+                const category = menuData.categories.find(cat => cat.id === categoryId);
+                if (category) {
+                    selectedCategoryText.textContent = category.name;
+                }
+            }
+        }
 
         // Clear search input
         const searchInput = document.getElementById('searchInput');
