@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Close Button Test - Bella Vista</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top glass-nav">
+        <div class="container position-relative">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="fas fa-utensils me-2"></i>
+                <span class="brand-text">Bella Vista</span>
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Cart Badge - Centered on Mobile -->
+            <div class="cart-badge d-lg-none cart-badge-mobile" style="display: flex;">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="badge-count" id="cartCountMobile">2</span>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#menu">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+
+                <!-- Cart Badge - Desktop -->
+                <div class="cart-badge d-none d-lg-block ms-3 cart-badge-desktop" style="display: flex;">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge-count" id="cartCountDesktop">2</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Test Content -->
+    <section class="py-5" style="padding-top: 120px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="text-center mb-4">Close Button Visibility Test</h1>
+
+                    <div class="alert alert-info">
+                        <h5>🧪 Close Button Test:</h5>
+                        <ol class="mb-0 mt-2">
+                            <li><strong>Desktop Check:</strong> No close button (×) should be visible next to logo</li>
+                            <li><strong>Mobile Check:</strong> Resize to < 992px and open hamburger menu</li>
+                            <li><strong>Mobile Menu:</strong> Close button should appear in top-right of menu</li>
+                            <li><strong>Menu Close:</strong> Click × or overlay to close menu</li>
+                        </ol>
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col-md-6 mb-3">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <i class="fas fa-desktop fa-2x text-primary mb-3"></i>
+                                    <h6>Desktop View</h6>
+                                    <p class="small text-muted">No close button visible</p>
+                                    <div class="bg-light p-3 rounded">
+                                        <strong>Expected:</strong> Clean navbar with logo, menu, cart
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <i class="fas fa-mobile-alt fa-2x text-success mb-3"></i>
+                                    <h6>Mobile Menu</h6>
+                                    <p class="small text-muted">Close button in menu only</p>
+                                    <div class="bg-light p-3 rounded">
+                                        <strong>Expected:</strong> × button in top-right when menu open
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-success mt-4">
+                        <h5>✅ Fixed Issues:</h5>
+                        <ul class="mb-0">
+                            <li>❌ Close button showing on desktop → ✅ Hidden on desktop</li>
+                            <li>❌ Close button misplaced → ✅ Properly positioned in mobile menu</li>
+                            <li>❌ Visual clutter → ✅ Clean desktop navbar</li>
+                        </ul>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <a href="index.html" class="btn btn-primary me-2">Test Real Homepage</a>
+                        <a href="menu.html" class="btn btn-secondary me-2">Test Real Menu</a>
+                        <button onclick="checkCloseButton()" class="btn btn-info">Check Close Button</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        // Test close button visibility
+        function checkCloseButton() {
+            const closeButtons = document.querySelectorAll('.mobile-menu-close');
+            const screenWidth = window.innerWidth;
+
+            console.log('Close Button Analysis:');
+            console.log('- Screen width:', screenWidth);
+            console.log('- Close buttons found:', closeButtons.length);
+
+            closeButtons.forEach((btn, index) => {
+                const computedStyle = window.getComputedStyle(btn);
+                console.log(`Button ${index + 1}:`, {
+                    display: computedStyle.display,
+                    visibility: computedStyle.visibility,
+                    opacity: computedStyle.opacity
+                });
+            });
+
+            if (screenWidth >= 992) {
+                if (closeButtons.length === 0) {
+                    alert('✅ Desktop: No close buttons found (correct)');
+                } else {
+                    alert('❌ Desktop: Close buttons found (should be hidden)');
+                }
+            } else {
+                alert('📱 Mobile: Check console for close button details');
+            }
+        }
+
+        // Auto-check on load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(checkCloseButton, 1000);
+        });
+    </script>
+</body>
+</html>

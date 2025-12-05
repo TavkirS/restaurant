@@ -1,0 +1,183 @@
+{
+  "categories": [
+    {
+      "id": "appetizers",
+      "name": "Appetizers",
+      "description": "Start your meal with our delicious starters"
+    },
+    {
+      "id": "main-course",
+      "name": "Main Course",
+      "description": "Our signature dishes made with fresh ingredients"
+    },
+    {
+      "id": "pasta",
+      "name": "Pasta & Risotto",
+      "description": "Authentic Italian pasta dishes"
+    },
+    {
+      "id": "pizza",
+      "name": "Wood Fired Pizza",
+      "description": "Traditional wood-fired pizzas with fresh toppings"
+    },
+    {
+      "id": "desserts",
+      "name": "Desserts",
+      "description": "Sweet endings to your perfect meal"
+    },
+    {
+      "id": "beverages",
+      "name": "Beverages",
+      "description": "Refreshing drinks and beverages"
+    }
+  ],
+  "items": [
+    {
+      "id": "bruschetta",
+      "name": "Classic Bruschetta",
+      "category": "appetizers",
+      "price": 180,
+      "veg": true,
+      "description": "Toasted bread topped with fresh tomatoes, basil, garlic, and extra virgin olive oil. A traditional Italian starter.",
+      "images": [
+        "imgtwo.webp",
+        "imgthree.webp"
+      ]
+    },
+    {
+      "id": "calamari",
+      "name": "Crispy Calamari Rings",
+      "category": "appetizers",
+      "price": 320,
+      "veg": false,
+      "description": "Golden fried squid rings served with marinara sauce and lemon wedges. Perfectly seasoned and crispy.",
+      "images": [
+        "imgfour.jpg"
+      ]
+    },
+    {
+      "id": "mushroom-risotto",
+      "name": "Wild Mushroom Risotto",
+      "category": "main-course",
+      "price": 380,
+      "veg": true,
+      "description": "Creamy Arborio rice cooked with wild mushrooms, white wine, parmesan cheese, and fresh herbs.",
+      "images": [
+        "imgfive.webp",
+        "imgtwo.webp",
+        "imgthree.webp"
+      ]
+    },
+    {
+      "id": "grilled-salmon",
+      "name": "Grilled Atlantic Salmon",
+      "category": "main-course",
+      "price": 450,
+      "veg": false,
+      "description": "Fresh Atlantic salmon fillet grilled to perfection, served with roasted vegetables and lemon butter sauce.",
+      "images": [
+        "imgfour.jpg",
+        "imgfive.webp"
+      ]
+    },
+    {
+      "id": "carbonara",
+      "name": "Spaghetti Carbonara",
+      "category": "pasta",
+      "price": 280,
+      "veg": false,
+      "description": "Classic Roman pasta with pancetta, eggs, pecorino romano cheese, and black pepper. Rich and creamy.",
+      "images": [
+        "imgtwo.webp",
+        "imgthree.webp",
+        "imgfour.jpg"
+      ]
+    },
+    {
+      "id": "pesto-penne",
+      "name": "Pesto Penne Pasta",
+      "category": "pasta",
+      "price": 260,
+      "veg": true,
+      "description": "Penne pasta tossed in homemade basil pesto sauce with pine nuts, parmesan, and cherry tomatoes.",
+      "images": [
+        "imgfive.webp",
+        "imgtwo.webp"
+      ]
+    },
+    {
+      "id": "margherita",
+      "name": "Classic Margherita Pizza",
+      "category": "pizza",
+      "price": 320,
+      "veg": true,
+      "description": "Traditional Neapolitan pizza with San Marzano tomato sauce, fresh mozzarella, basil, and extra virgin olive oil.",
+      "images": [
+        "imgthree.webp",
+        "imgfour.jpg",
+        "imgfive.webp"
+      ]
+    },
+    {
+      "id": "diavola",
+      "name": "Diavola Pizza",
+      "category": "pizza",
+      "price": 380,
+      "veg": false,
+      "description": "Spicy pizza topped with spicy salami, mozzarella cheese, tomato sauce, and fresh chili peppers.",
+      "images": [
+        "imgtwo.webp",
+        "imgthree.webp"
+      ]
+    },
+    {
+      "id": "tiramisu",
+      "name": "Classic Tiramisu",
+      "category": "desserts",
+      "price": 220,
+      "veg": true,
+      "description": "Traditional Italian dessert with layers of coffee-soaked ladyfingers, mascarpone cream, and cocoa powder.",
+      "images": [
+        "imgfour.jpg",
+        "imgfive.webp",
+        "imgtwo.webp"
+      ]
+    },
+    {
+      "id": "gelato",
+      "name": "Artisan Gelato",
+      "category": "desserts",
+      "price": 150,
+      "veg": true,
+      "description": "Homemade Italian gelato available in various flavors. Ask your server for today's selection.",
+      "images": [
+        "imgthree.webp",
+        "imgfour.jpg"
+      ]
+    },
+    {
+      "id": "cappuccino",
+      "name": "Italian Cappuccino",
+      "category": "beverages",
+      "price": 120,
+      "veg": true,
+      "description": "Authentic Italian cappuccino made with freshly ground Arabica beans and steamed milk foam.",
+      "images": [
+        "imgfive.webp",
+        "imgtwo.webp"
+      ]
+    },
+    {
+      "id": "wine-selection",
+      "name": "House Wine Selection",
+      "category": "beverages",
+      "price": 180,
+      "veg": true,
+      "description": "Carefully selected Italian wines by the glass. Red, white, and rosé options available.",
+      "images": [
+        "imgthree.webp",
+        "imgfour.jpg"
+      ]
+    }
+  ]
+}

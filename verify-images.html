@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Verification - Bella Vista</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="mb-4">Image Verification</h1>
+                <p class="lead mb-4">Checking if all menu images are loading correctly</p>
+
+                <div class="alert alert-info">
+                    <strong>Status:</strong> Images moved to <code>assets/images/menu/placeholder/</code> and menu.json updated
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <div class="card">
+                            <img src="assets/images/menu/placeholder/imgtwo.webp" class="card-img-top" alt="Image Two" style="height: 200px; object-fit: cover;">
+                            <div class="card-body">
+                                <h6>imgtwo.webp</h6>
+                                <small class="text-muted">Used for pasta dishes</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <div class="card">
+                            <img src="assets/images/menu/placeholder/imgthree.webp" class="card-img-top" alt="Image Three" style="height: 200px; object-fit: cover;">
+                            <div class="card-body">
+                                <h6>imgthree.webp</h6>
+                                <small class="text-muted">Used for pizzas</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <div class="card">
+                            <img src="assets/images/menu/placeholder/imgfour.jpg" class="card-img-top" alt="Image Four" style="height: 200px; object-fit: cover;">
+                            <div class="card-body">
+                                <h6>imgfour.jpg</h6>
+                                <small class="text-muted">Used for main courses</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <div class="card">
+                            <img src="assets/images/menu/placeholder/imgfive.webp" class="card-img-top" alt="Image Five" style="height: 200px; object-fit: cover;">
+                            <div class="card-body">
+                                <h6>imgfive.webp</h6>
+                                <small class="text-muted">Used for appetizers</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <a href="index.html" class="btn btn-primary me-2">View Homepage</a>
+                    <a href="menu.html" class="btn btn-secondary me-2">View Menu</a>
+                    <button onclick="checkImages()" class="btn btn-info">Check Image Loading</button>
+                </div>
+
+                <div id="image-status" class="mt-3"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkImages() {
+            const images = document.querySelectorAll('img');
+            const statusDiv = document.getElementById('image-status');
+            let loaded = 0;
+            let failed = 0;
+
+            statusDiv.innerHTML = '<div class="alert alert-warning">Checking images...</div>';
+
+            images.forEach(img => {
+                img.addEventListener('load', () => {
+                    loaded++;
+                    updateStatus();
+                });
+
+                img.addEventListener('error', () => {
+                    failed++;
+                    updateStatus();
+                });
+            });
+
+            function updateStatus() {
+                const total = images.length;
+                if (loaded + failed === total) {
+                    if (failed === 0) {
+                        statusDiv.innerHTML = `<div class="alert alert-success">✅ All ${loaded} images loaded successfully!</div>`;
+                    } else {
+                        statusDiv.innerHTML = `<div class="alert alert-warning">⚠️ ${loaded} images loaded, ${failed} failed to load.</div>`;
+                    }
+                }
+            }
+
+            // Timeout after 5 seconds
+            setTimeout(() => {
+                if (loaded + failed < images.length) {
+                    statusDiv.innerHTML = '<div class="alert alert-danger">⏰ Some images are taking too long to load.</div>';
+                }
+            }, 5000);
+        }
+
+        // Auto-check on page load
+        window.addEventListener('load', () => {
+            setTimeout(checkImages, 1000);
+        });
+    </script>
+</body>
+</html>

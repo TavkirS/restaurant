@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bella Vista - Test Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="mb-4">Bella Vista Restaurant</h1>
+                <p class="lead mb-4">Test page to verify your setup</p>
+
+                <div class="alert alert-info">
+                    <h5>🚨 CORS Issue Detected</h5>
+                    <p>You need to run this website through a local web server, not by opening files directly.</p>
+                </div>
+
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <h5>Quick Fix Options:</h5>
+                    </div>
+                    <div class="card-body">
+                        <h6>Option 1: Use Python Server (Recommended)</h6>
+                        <ol class="text-start">
+                            <li>Make sure Python is installed</li>
+                            <li>Double-click <code>start-server.bat</code></li>
+                            <li>Open <code>http://localhost:8000</code></li>
+                        </ol>
+
+                        <h6 class="mt-3">Option 2: VS Code Live Server</h6>
+                        <ol class="text-start">
+                            <li>Install VS Code</li>
+                            <li>Install "Live Server" extension</li>
+                            <li>Right-click <code>index.html</code> → "Open with Live Server"</li>
+                        </ol>
+
+                        <h6 class="mt-3">Option 3: Deploy to Hostinger</h6>
+                        <ol class="text-start">
+                            <li>Upload all files to your Hostinger hosting</li>
+                            <li>Access via your domain name</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <a href="index.html" class="btn btn-primary me-2">Try Opening index.html Anyway</a>
+                    <button onclick="testLocalStorage()" class="btn btn-secondary me-2">Test LocalStorage</button>
+                    <button onclick="testFetch()" class="btn btn-warning">Test Fetch (Will Fail)</button>
+                </div>
+
+                <div id="test-results" class="mt-3"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function testLocalStorage() {
+            try {
+                localStorage.setItem('test', 'working');
+                const result = localStorage.getItem('test');
+                document.getElementById('test-results').innerHTML =
+                    '<div class="alert alert-success">✅ LocalStorage is working!</div>';
+            } catch (e) {
+                document.getElementById('test-results').innerHTML =
+                    '<div class="alert alert-danger">❌ LocalStorage failed: ' + e.message + '</div>';
+            }
+        }
+
+        function testFetch() {
+            fetch('menu.json')
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw new Error('Network response was not ok');
+                })
+                .then(data => {
+                    document.getElementById('test-results').innerHTML =
+                        '<div class="alert alert-success">✅ Fetch is working! Loaded ' + data.items.length + ' menu items.</div>';
+                })
+                .catch(error => {
+                    document.getElementById('test-results').innerHTML =
+                        '<div class="alert alert-danger">❌ Fetch failed (expected): ' + error.message + '</div>';
+                });
+        }
+
+        // Auto-run LocalStorage test
+        testLocalStorage();
+    </script>
+</body>
+</html>

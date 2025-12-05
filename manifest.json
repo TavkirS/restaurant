@@ -1,0 +1,87 @@
+{
+  "name": "Bella Vista Restaurant",
+  "short_name": "Bella Vista",
+  "description": "Authentic Italian cuisine with wood-fired pizzas and fresh pasta. Order online for delivery or takeaway.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ff6b35",
+  "orientation": "portrait-primary",
+  "categories": ["food", "restaurant", "lifestyle"],
+  "lang": "en-IN",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/assets/images/favicons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/images/favicons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/images/favicons/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/images/favicons/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/images/favicons/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/assets/images/screenshots/home-mobile.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Bella Vista Restaurant - Mobile Home Screen"
+    },
+    {
+      "src": "/assets/images/screenshots/menu-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Bella Vista Restaurant - Desktop Menu"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "View Menu",
+      "short_name": "Menu",
+      "description": "Browse our complete menu",
+      "url": "/menu.html",
+      "icons": [
+        {
+          "src": "/assets/images/favicons/shortcut-menu.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Place Order",
+      "short_name": "Order",
+      "description": "Start your order",
+      "url": "/checkout.html",
+      "icons": [
+        {
+          "src": "/assets/images/favicons/shortcut-order.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}

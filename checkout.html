@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Bella Vista Restaurant</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Complete your order at Bella Vista Restaurant. Fast and secure checkout process.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicons/favicon.ico">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top glass-nav">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="fas fa-arrow-left me-2"></i>
+                <span class="brand-text">Bella Vista</span>
+            </a>
+
+            <div class="navbar-text">
+                <i class="fas fa-shopping-bag me-2"></i>
+                Checkout
+            </div>
+        </div>
+    </nav>
+
+    <!-- Checkout Content -->
+    <section class="checkout-section py-5" style="padding-top: 100px;">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Order Summary -->
+                <div class="col-lg-4">
+                    <div class="glass-card p-4 sticky-top">
+                        <h4 class="mb-4">Order Summary</h4>
+
+                        <div id="checkoutItems">
+                            <!-- Items will be populated by JavaScript -->
+                        </div>
+
+                        <hr class="my-3">
+
+                        <div class="order-totals">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Subtotal:</span>
+                                <span id="checkoutSubtotal">₹0</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>GST (5%):</span>
+                                <span id="checkoutGST">₹0</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Delivery Fee:</span>
+                                <span id="checkoutDelivery">₹0</span>
+                            </div>
+                            <hr class="my-2">
+                            <div class="d-flex justify-content-between fw-bold fs-5">
+                                <span>Total:</span>
+                                <span id="checkoutTotal">₹0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Checkout Form -->
+                <div class="col-lg-8">
+                    <div class="glass-card p-4">
+                        <h4 class="mb-4">Delivery Details</h4>
+
+                        <form id="checkoutForm">
+                            <!-- Customer Information -->
+                            <div class="row g-3 mb-4">
+                                <div class="col-md-6">
+                                    <label for="customerName" class="form-label">Full Name *</label>
+                                    <input type="text" class="form-control" id="customerName" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="customerPhone" class="form-label">Phone Number *</label>
+                                    <input type="tel" class="form-control" id="customerPhone" required>
+                                </div>
+                            </div>
+
+                            <!-- Order Type -->
+                            <div class="mb-4">
+                                <label class="form-label">Order Type *</label>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="form-check delivery-option">
+                                            <input class="form-check-input" type="radio" name="orderType" id="delivery" value="delivery" checked>
+                                            <label class="form-check-label d-flex align-items-center" for="delivery">
+                                                <i class="fas fa-truck me-2"></i>
+                                                <div>
+                                                    <div class="fw-bold">Delivery</div>
+                                                    <small class="text-muted">Delivered to your address</small>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-check delivery-option">
+                                            <input class="form-check-input" type="radio" name="orderType" id="takeaway" value="takeaway">
+                                            <label class="form-check-label d-flex align-items-center" for="takeaway">
+                                                <i class="fas fa-store me-2"></i>
+                                                <div>
+                                                    <div class="fw-bold">Takeaway</div>
+                                                    <small class="text-muted">Pick up from restaurant</small>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Delivery Address (shown only for delivery) -->
+                            <div id="addressSection" class="mb-4">
+                                <label for="deliveryAddress" class="form-label">Delivery Address *</label>
+                                <textarea class="form-control" id="deliveryAddress" rows="3" placeholder="Enter your complete delivery address..." required></textarea>
+                                <div class="form-text">
+                                    <i class="fas fa-info-circle me-1"></i>
+                                    We deliver within 5km radius. Additional charges may apply for longer distances.
+                                </div>
+                            </div>
+
+                            <!-- Special Instructions -->
+                            <div class="mb-4">
+                                <label for="specialInstructions" class="form-label">Special Instructions (Optional)</label>
+                                <textarea class="form-control" id="specialInstructions" rows="2" placeholder="Any special requests or allergies..."></textarea>
+                            </div>
+
+                            <!-- Terms and Conditions -->
+                            <div class="mb-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="termsCheck" required>
+                                    <label class="form-check-label" for="termsCheck">
+                                        I agree to the <a href="#" class="text-primary">Terms & Conditions</a> and <a href="#" class="text-primary">Privacy Policy</a>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Place Order Button -->
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg" id="placeOrderBtn">
+                                    <i class="fab fa-whatsapp me-2"></i>
+                                    Place Order via WhatsApp
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- Order Success Message (hidden by default) -->
+                        <div id="orderSuccess" class="text-center py-5" style="display: none;">
+                            <div class="success-icon mb-3">
+                                <i class="fas fa-check-circle fa-4x text-success"></i>
+                            </div>
+                            <h4 class="text-success mb-3">Order Placed Successfully!</h4>
+                            <p class="mb-3">Your order has been sent to our WhatsApp. We'll confirm your order shortly.</p>
+                            <div class="order-id-display mb-3">
+                                <strong>Order ID: <span id="orderIdDisplay"></span></strong>
+                            </div>
+                            <button class="btn btn-primary" onclick="window.location.href='index.html'">
+                                <i class="fas fa-home me-2"></i>Back to Home
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-4">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2024 Bella Vista Restaurant. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/checkout.js"></script>
+</body>
+</html>

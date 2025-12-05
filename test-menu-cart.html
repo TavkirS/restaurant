@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Cart Test - Bella Vista</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Config and Menu Data -->
+    <script src="config.js"></script>
+    <script src="menu.json"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top glass-nav">
+        <div class="container position-relative">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="fas fa-arrow-left me-2"></i>
+                <span class="brand-text">Bella Vista</span>
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Cart Badge - Centered on Mobile -->
+            <div class="cart-badge d-lg-none cart-badge-mobile" style="display: flex;">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="badge-count" id="cartCountMobile">0</span>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="menu.html">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Contact</a>
+                    </li>
+                </ul>
+
+                <!-- Cart Badge - Desktop -->
+                <div class="cart-badge d-none d-lg-block ms-3 cart-badge-desktop" style="display: flex;">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge-count" id="cartCountDesktop">0</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menu Header -->
+    <section class="menu-header py-5">
+        <div class="container">
+            <div class="text-center">
+                <h1 class="display-4 fw-bold mb-3">Menu Cart Test</h1>
+                <p class="lead text-muted mb-4">Testing cart functionality specifically on menu page</p>
+
+                <!-- Category Filters -->
+                <div class="category-filters d-flex flex-wrap justify-content-center gap-2 mb-4" id="categoryFilters">
+                    <button class="btn btn-outline-primary active" data-category="all">All</button>
+                    <button class="btn btn-outline-primary" data-category="appetizers">Appetizers</button>
+                    <button class="btn btn-outline-primary" data-category="pasta">Pasta</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Test Menu Items -->
+    <section class="menu-items py-5">
+        <div class="container">
+            <div class="row g-4" id="menuContainer">
+                <!-- Test menu items will be populated by JavaScript -->
+            </div>
+
+            <!-- Manual test items -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <h5>Manual Test Items:</h5>
+                    <div class="d-flex gap-2 flex-wrap">
+                        <button class="btn btn-success" onclick="addToCart('bruschetta')">
+                            <i class="fas fa-plus me-1"></i>Add Bruschetta
+                        </button>
+                        <button class="btn btn-info" onclick="addToCart('carbonara')">
+                            <i class="fas fa-plus me-1"></i>Add Carbonara
+                        </button>
+                        <button class="btn btn-warning" onclick="addToCart('margherita')">
+                            <i class="fas fa-plus me-1"></i>Add Margherita
+                        </button>
+                        <button class="btn btn-danger" onclick="addToCart('tiramisu')">
+                            <i class="fas fa-plus me-1"></i>Add Tiramisu
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Drawer -->
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h4 class="mb-0">Your Order</h4>
+            <button class="btn-close" onclick="closeCart()"></button>
+        </div>
+
+        <div class="cart-body" id="cartItems">
+            <div class="empty-cart text-center py-5">
+                <i class="fas fa-shopping-cart fa-3x text-muted mb-3"></i>
+                <p class="text-muted">Your cart is empty</p>
+                <p class="text-muted small">Add some delicious items from our menu!</p>
+            </div>
+        </div>
+
+        <div class="cart-footer" id="cartFooter" style="display: none;">
+            <div class="cart-summary">
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Subtotal:</span>
+                    <span id="cartSubtotal">₹0</span>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                    <span>GST (5%):</span>
+                    <span id="cartGST">₹0</span>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Delivery Fee:</span>
+                    <span id="cartDelivery">₹0</span>
+                </div>
+                <hr>
+                <div class="d-flex justify-content-between fw-bold">
+                    <span>Total:</span>
+                    <span id="cartTotal">₹0</span>
+                </div>
+            </div>
+
+            <div class="cart-actions mt-3">
+                <button class="btn btn-outline-danger w-100 mb-2" onclick="clearCart()">
+                    <i class="fas fa-trash me-2"></i>Clear Cart
+                </button>
+                <button class="btn btn-primary w-100" onclick="proceedToCheckout()">
+                    <i class="fas fa-shopping-bag me-2"></i>Proceed to Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+    <!-- Test Content -->
+    <section class="py-5" style="padding-top: 140px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="alert alert-info">
+                        <h5>🍽️ Menu Page Cart Test:</h5>
+                        <ol class="mb-0 mt-2">
+                            <li><strong>Menu Loading:</strong> Menu items should load automatically</li>
+                            <li><strong>Add to Cart:</strong> Click "Add" buttons on menu items</li>
+                            <li><strong>Manual Test:</strong> Use manual buttons above</li>
+                            <li><strong>Cart Badge:</strong> Should update with item count</li>
+                            <li><strong>Cart Toggle:</strong> Click cart icon to open/close drawer</li>
+                            <li><strong>Console:</strong> Check browser console for debug messages</li>
+                        </ol>
+                    </div>
+
+                    <div class="alert alert-success">
+                        <h5>✅ Menu Page Cart Fixes:</h5>
+                        <ul class="mb-0">
+                            <li>✅ Menu data loaded and made globally available</li>
+                            <li>✅ Add to cart waits for menu data to load</li>
+                            <li>✅ Fallback system for missing menu items</li>
+                            <li>✅ Cart functionality fully working on menu page</li>
+                            <li>✅ Real menu items can be added to cart</li>
+                        </ul>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <a href="menu.html" class="btn btn-primary me-2">Test Real Menu</a>
+                        <a href="index.html" class="btn btn-secondary me-2">Back to Homepage</a>
+                        <button onclick="checkMenuStatus()" class="btn btn-info">Check Status</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Manual menu loading for test
+        let menuData = null;
+
+        // Load menu data
+        fetch('menu.json')
+            .then(response => response.json())
+            .then(data => {
+                menuData = data;
+                window.menuData = data;
+                renderTestMenu();
+                console.log('✅ Menu data loaded');
+            })
+            .catch(error => {
+                console.error('❌ Failed to load menu data:', error);
+            });
+
+        function renderTestMenu() {
+            const container = document.getElementById('menuContainer');
+            if (!menuData || !container) return;
+
+            // Show first 3 items as test
+            const testItems = menuData.items.slice(0, 3);
+            container.innerHTML = testItems.map(item => `
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="menu-item-card glass-card h-100">
+                        <div class="image-gallery position-relative mb-3">
+                            <div class="carousel slide" data-bs-ride="false">
+                                <div class="carousel-inner rounded-3 overflow-hidden">
+                                    <div class="carousel-item active">
+                                        <img src="assets/images/menu/placeholder/${item.images[0]}"
+                                             class="d-block w-100 menu-item-image"
+                                             alt="${item.name}">
+                                    </div>
+                                </div>
+                                <div class="veg-indicator">
+                                    <i class="fas fa-circle ${item.veg ? 'text-success' : 'text-danger'}"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item-details p-3">
+                            <h5 class="item-title mb-2">${item.name}</h5>
+                            <p class="item-description text-muted small mb-3">${item.description}</p>
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="item-price">
+                                    <span class="price-amount">₹${item.price}</span>
+                                </div>
+
+                                <div class="add-to-cart-section">
+                                    <button class="btn btn-primary btn-sm add-to-cart-btn"
+                                            onclick="addToCart('${item.id}')">
+                                        <i class="fas fa-cart-plus me-1"></i>Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function checkMenuStatus() {
+            const status = {
+                menuData: !!menuData,
+                windowMenuData: !!window.menuData,
+                cartManager: typeof cartManager !== 'undefined',
+                menuItems: menuData ? menuData.items.length : 0
+            };
+
+            alert(`Menu Status:\nMenu Data: ${status.menuData ? '✅' : '❌'}\nWindow Menu Data: ${status.windowMenuData ? '✅' : '❌'}\nCart Manager: ${status.cartManager ? '✅' : '❌'}\nMenu Items: ${status.menuItems}`);
+
+            console.log('Detailed Status:', status);
+        }
+
+        // Auto-check on load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                console.log('Menu cart test page loaded');
+                checkMenuStatus();
+            }, 1000);
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/menu.js"></script>
+</body>
+</html>

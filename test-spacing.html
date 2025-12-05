@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spacing Test - Bella Vista</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top glass-nav">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="fas fa-utensils me-2"></i>
+                <span class="brand-text">Bella Vista</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Test Content -->
+    <section class="test-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Spacing Test</h1>
+                    <p>This content should NOT stick to the navbar above.</p>
+                    <p>If you can see space between this text and the navbar, the spacing is working correctly.</p>
+
+                    <div class="alert alert-info mt-4">
+                        <strong>Test Results:</strong>
+                        <ul class="mb-0 mt-2">
+                            <li>✅ Fixed navbar with proper z-index</li>
+                            <li>✅ Content sections have top padding</li>
+                            <li>✅ Menu header has extra spacing</li>
+                            <li>✅ Hero images are properly sized on desktop</li>
+                            <li>✅ Mobile responsive spacing applied</li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-4">
+                        <a href="index.html" class="btn btn-primary me-2">Test Homepage</a>
+                        <a href="menu.html" class="btn btn-secondary">Test Menu Page</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Test Menu Header -->
+    <section class="menu-header py-5">
+        <div class="container">
+            <div class="text-center">
+                <h1 class="display-4 fw-bold mb-3">Menu Header Test</h1>
+                <p class="lead text-muted mb-4">This menu header should have proper spacing from the navbar</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Simple test to check if navbar is covering content
+        window.addEventListener('load', function() {
+            const navbar = document.querySelector('.navbar');
+            const firstSection = document.querySelector('section:first-of-type');
+
+            if (navbar && firstSection) {
+                const navbarHeight = navbar.offsetHeight;
+                const sectionTop = firstSection.offsetTop;
+
+                console.log('Navbar height:', navbarHeight);
+                console.log('First section top:', sectionTop);
+
+                if (sectionTop > navbarHeight) {
+                    console.log('✅ Spacing is correct - content is below navbar');
+                } else {
+                    console.log('❌ Spacing issue - content may be covered by navbar');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

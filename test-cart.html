@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Test - Bella Vista</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Config File -->
+    <script src="config.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top glass-nav">
+        <div class="container position-relative">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="fas fa-utensils me-2"></i>
+                <span class="brand-text">Bella Vista</span>
+            </a>
+
+            <!-- Cart Badge - Centered on Mobile -->
+            <div class="cart-badge d-lg-none" id="cartBadge" style="display: flex;">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="badge-count" id="cartCount">0</span>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Cart Test</a>
+                    </li>
+                </ul>
+
+                <!-- Cart Badge - Desktop -->
+                <div class="cart-badge d-none d-lg-block ms-3" id="cartBadge" style="display: flex;">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge-count" id="cartCount">0</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Drawer -->
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h4 class="mb-0">Your Order</h4>
+            <button class="btn-close" onclick="closeCart()"></button>
+        </div>
+
+        <div class="cart-body" id="cartItems">
+            <div class="empty-cart text-center py-5">
+                <i class="fas fa-shopping-cart fa-3x text-muted mb-3"></i>
+                <p class="text-muted">Your cart is empty</p>
+                <p class="text-muted small">Add some delicious items from our menu!</p>
+            </div>
+        </div>
+
+        <div class="cart-footer" id="cartFooter" style="display: none;">
+            <div class="cart-summary">
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Subtotal:</span>
+                    <span id="cartSubtotal">₹0</span>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                    <span>GST (5%):</span>
+                    <span id="cartGST">₹0</span>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Delivery Fee:</span>
+                    <span id="cartDelivery">₹0</span>
+                </div>
+                <hr>
+                <div class="d-flex justify-content-between fw-bold">
+                    <span>Total:</span>
+                    <span id="cartTotal">₹0</span>
+                </div>
+            </div>
+
+            <div class="cart-actions mt-3">
+                <button class="btn btn-outline-danger w-100 mb-2" onclick="clearCart()">
+                    <i class="fas fa-trash me-2"></i>Clear Cart
+                </button>
+                <button class="btn btn-primary w-100" onclick="proceedToCheckout()">
+                    <i class="fas fa-shopping-bag me-2"></i>Proceed to Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+    <!-- Test Content -->
+    <section class="test-section py-5" style="padding-top: 120px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Cart Functionality Test</h1>
+                    <p class="lead mb-4">Testing cart badge clicks, add to cart, and cart drawer functionality</p>
+
+                    <div class="alert alert-info">
+                        <strong>Cart Test Status:</strong>
+                        <ul class="mb-0 mt-2">
+                            <li id="config-status">⏳ Checking CONFIG...</li>
+                            <li id="cart-status">⏳ Checking Cart Manager...</li>
+                            <li id="badge-status">⏳ Checking Cart Badge...</li>
+                            <li id="drawer-status">⏳ Checking Cart Drawer...</li>
+                        </ul>
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <h5>Test Cart Badge Click</h5>
+                            <p>Click the cart icon in the navbar above to open the cart drawer.</p>
+                            <div class="alert alert-warning">
+                                <strong>Expected:</strong> Cart drawer should slide in from the right
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <h5>Test Add to Cart</h5>
+                            <button class="btn btn-success" onclick="testAddToCart()">
+                                <i class="fas fa-plus me-2"></i>Add Test Item to Cart
+                            </button>
+                            <div class="alert alert-warning mt-2">
+                                <strong>Expected:</strong> Item added, cart badge updates, success message shown
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <a href="menu.html" class="btn btn-primary me-2">Test Full Menu</a>
+                        <a href="index.html" class="btn btn-secondary">Back to Homepage</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Test functions
+        function testAddToCart() {
+            // Create a test item
+            const testItem = {
+                id: 'test-pizza',
+                name: 'Test Margherita Pizza',
+                price: 320,
+                veg: true,
+                images: ['imgthree.webp']
+            };
+
+            // Add to cart using cartManager directly
+            if (typeof cartManager !== 'undefined' && cartManager) {
+                cartManager.addItem(testItem);
+                alert('Test item added to cart! Check the cart badge and drawer.');
+            } else {
+                alert('Cart manager not initialized yet. Please wait for the page to load.');
+            }
+        }
+
+        // Status checks
+        function updateStatus() {
+            // Check CONFIG
+            const configStatus = document.getElementById('config-status');
+            if (typeof CONFIG !== 'undefined') {
+                configStatus.innerHTML = '✅ CONFIG loaded successfully';
+                configStatus.className = 'text-success';
+            } else {
+                configStatus.innerHTML = '❌ CONFIG not loaded';
+                configStatus.className = 'text-danger';
+            }
+
+            // Check Cart Manager
+            const cartStatus = document.getElementById('cart-status');
+            if (typeof cartManager !== 'undefined' && cartManager) {
+                cartStatus.innerHTML = '✅ Cart Manager initialized';
+                cartStatus.className = 'text-success';
+            } else {
+                cartStatus.innerHTML = '⏳ Cart Manager initializing...';
+                cartStatus.className = 'text-warning';
+            }
+
+            // Check Cart Badge
+            const badgeStatus = document.getElementById('badge-status');
+            const badges = document.querySelectorAll('#cartBadge');
+            if (badges.length > 0) {
+                badgeStatus.innerHTML = `✅ ${badges.length} Cart badge(s) found`;
+                badgeStatus.className = 'text-success';
+            } else {
+                badgeStatus.innerHTML = '❌ No cart badges found';
+                badgeStatus.className = 'text-danger';
+            }
+
+            // Check Cart Drawer
+            const drawerStatus = document.getElementById('drawer-status');
+            const drawer = document.getElementById('cartDrawer');
+            if (drawer) {
+                drawerStatus.innerHTML = '✅ Cart drawer found';
+                drawerStatus.className = 'text-success';
+            } else {
+                drawerStatus.innerHTML = '❌ Cart drawer not found';
+                drawerStatus.className = 'text-danger';
+            }
+        }
+
+        // Run status checks
+        window.addEventListener('load', function() {
+            setTimeout(updateStatus, 500);
+            setTimeout(updateStatus, 1500); // Check again after cart initializes
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/cart.js"></script>
+</body>
+</html>

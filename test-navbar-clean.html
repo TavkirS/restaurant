@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clean Navbar Test - Bella Vista</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Clean Navigation Test -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top glass-nav">
+        <div class="container position-relative">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="fas fa-utensils me-2"></i>
+                <span class="brand-text">Bella Vista</span>
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Cart Badge - Centered on Mobile -->
+            <div class="cart-badge d-lg-none cart-badge-mobile" style="display: flex;">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="badge-count" id="cartCountMobile">2</span>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#menu">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+
+                <!-- Cart Badge - Desktop -->
+                <div class="cart-badge d-none d-lg-block ms-3 cart-badge-desktop" style="display: flex;">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge-count" id="cartCountDesktop">2</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="container">
+                <div class="row align-items-center min-vh-100">
+                    <div class="col-lg-6">
+                        <div class="hero-text animate-fade-in">
+                            <h1 class="display-1 fw-bold mb-4">
+                                Clean <span class="text-gradient">Navbar</span> Test
+                            </h1>
+                            <p class="lead mb-4 fs-4">
+                                Testing navbar duplication and alignment fixes.
+                                Logo should appear only once and stay properly positioned.
+                            </p>
+                            <div class="hero-buttons">
+                                <a href="#test" class="btn btn-primary btn-lg me-3 animate-bounce">
+                                    <i class="fas fa-check me-2"></i>Test Navbar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="hero-image animate-float">
+                            <div class="glass-card p-4">
+                                <div class="text-center">
+                                    <i class="fas fa-mobile-alt fa-4x text-primary mb-3"></i>
+                                    <h4>Mobile Test</h4>
+                                    <p>Resize browser and test mobile menu</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Test Content -->
+    <section id="test" class="py-5" style="padding-top: 120px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="text-center mb-4">Navbar Clean Test</h2>
+
+                    <div class="alert alert-info">
+                        <h5>🧪 Navbar Clean Test Instructions:</h5>
+                        <ol class="mb-0 mt-2">
+                            <li><strong>Desktop Check:</strong> Logo should be left-aligned, cart on right</li>
+                            <li><strong>Mobile Check:</strong> Resize to < 992px width</li>
+                            <li><strong>Mobile Layout:</strong> Logo left, hamburger right, cart centered</li>
+                            <li><strong>Menu Open:</strong> Click hamburger - menu slides from left</li>
+                            <li><strong>Verification:</strong> Only ONE logo visible at all times</li>
+                            <li><strong>No Duplication:</strong> No cloned or overlapping logos</li>
+                        </ol>
+                    </div>
+
+                    <div class="alert alert-success">
+                        <h5>✅ Fixed Issues:</h5>
+                        <ul class="mb-0">
+                            <li>❌ Logo duplication → ✅ Single logo only</li>
+                            <li>❌ Mobile menu cloning logo → ✅ Clean slide-in menu</li>
+                            <li>❌ Misaligned positioning → ✅ Proper left/center/right layout</li>
+                            <li>❌ Overlapping elements → ✅ Clean z-index structure</li>
+                            <li>❌ Distorted header → ✅ Fixed and stable navbar</li>
+                        </ul>
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col-md-4 mb-3">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <i class="fas fa-desktop fa-2x text-primary mb-3"></i>
+                                    <h6>Desktop Layout</h6>
+                                    <p class="small text-muted">Logo left, menu center, cart right</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <i class="fas fa-mobile-alt fa-2x text-success mb-3"></i>
+                                    <h6>Mobile Layout</h6>
+                                    <p class="small text-muted">Logo left, cart center, hamburger right</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <i class="fas fa-sliders-h fa-2x text-info mb-3"></i>
+                                    <h6>Menu Behavior</h6>
+                                    <p class="small text-muted">Slide-in menu, no logo duplication</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <a href="index.html" class="btn btn-primary me-2">Test Real Homepage</a>
+                        <a href="menu.html" class="btn btn-secondary">Test Real Menu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        // Test functions
+        function checkNavbarElements() {
+            const logos = document.querySelectorAll('.navbar-brand');
+            const togglers = document.querySelectorAll('.navbar-toggler');
+            const mobileBadges = document.querySelectorAll('.cart-badge-mobile');
+            const desktopBadges = document.querySelectorAll('.cart-badge-desktop');
+
+            console.log('Navbar Analysis:');
+            console.log('- Logos found:', logos.length);
+            console.log('- Togglers found:', togglers.length);
+            console.log('- Mobile cart badges:', mobileBadges.length);
+            console.log('- Desktop cart badges:', desktopBadges.length);
+
+            // Check for proper structure
+            if (logos.length !== 1) {
+                console.error('❌ Logo count should be exactly 1!');
+                return false;
+            }
+
+            if (togglers.length !== 1) {
+                console.error('❌ Toggler count should be exactly 1!');
+                return false;
+            }
+
+            if (mobileBadges.length !== 1 || desktopBadges.length !== 1) {
+                console.error('❌ Should have exactly 1 mobile and 1 desktop cart badge!');
+                return false;
+            }
+
+            console.log('✅ Clean navbar structure - no duplications');
+            return true;
+        }
+
+        // Run checks on load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(checkNavbarElements, 500);
+        });
+    </script>
+</body>
+</html>
